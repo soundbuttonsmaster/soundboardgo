@@ -1,0 +1,80 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import LoginForm from '@/components/LoginForm';
+---
+
+<Layout
+  title="Login - SoundBoard Go | Sign In to Your Account"
+  description="Sign in to your SoundBoard Go account to access your favorite sound effects and manage your audio library."
+  keywords="login, sign in, soundboard go login, account access"
+  noindex={true}
+>
+  <div class="min-h-[calc(100vh-200px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    {/* Animated Background */}
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100"></div>
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+    
+    <div class="max-w-md w-full space-y-8 relative z-10">
+      <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-10 border border-white/20 transform transition-all hover:shadow-3xl">
+        <div class="text-center mb-8">
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mb-6 shadow-lg transform transition-transform hover:scale-110">
+            <svg
+              class="w-10 h-10 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">
+            Welcome Back
+          </h2>
+          <p class="text-gray-600 mb-1">
+            Sign in to continue to SoundBoard Go
+          </p>
+          <p class="text-sm text-gray-500">
+            Don't have an account?{' '}
+            <a href="/register" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+              Sign up for free
+            </a>
+          </p>
+        </div>
+        <LoginForm client:only="react" />
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes blob {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+    }
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+  </style>
+</Layout>
+

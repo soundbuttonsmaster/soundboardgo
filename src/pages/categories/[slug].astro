@@ -1,0 +1,105 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SoundGrid from '@/components/SoundGrid';
+import SearchSection from '@/components/SearchSection';
+import { soundService } from '@/services/sound.service';
+import type { SoundButton as SoundButtonType, Category } from '@/types';
+
+// Mark this route as server-rendered (not pre-rendered at build time)
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+if (!slug || typeof slug !== 'string' || slug === 'undefined' || slug.trim() === '') {
+  return Astro.redirect('/');
+}
+
+let category: Category | null = null;
+let sounds: SoundButtonType[] = [];
+let safeSlug = slug.trim();
+
+try {
+  category = await soundService.getCategoryBySlug(safeSlug);
+
+  if (!category || !category.id || !category.name) {
+    return Astro.redirect('/');
+  }
+
+  const { sounds: fetchedSounds } = await soundService.getSoundsWithPagination({
+    category: category.id,
+    page: 1,
+    page_size: 100,
+  });
+
+  sounds = fetchedSounds;
+  safeSlug = category.slug || safeSlug;
+} catch (error) {
+  console.error('Error fetching category page data:', error);
+  return Astro.redirect('/');
+}
+---
+
+<Layout
+  title={category ? `${category.name} Sound Effects - ${category.name} Audio Clips | SoundBoard Go` : 'Category - SoundBoard Go'}
+  description={category && category.description ? category.description : `Browse ${category ? category.name : 'sound'} effects and audio clips. High-quality ${category ? category.name : 'sound'} sounds for your projects.`}
+  keywords={category ? `${category.name}, ${category.name} sounds, ${category.name} audio, ${category.name} sound effects, ${category.name} clips` : 'sound effects, audio clips'}
+  image={category && category.image_url ? category.image_url : undefined}
+  type="website"
+  canonicalURL={category ? (Astro.site ? new URL(`/categories/${category.slug}`, Astro.site).href : `https://soundboardgo.com/categories/${category.slug}`) : undefined}
+>
+  <!-- Search Section -->
+  <SearchSection client:load category={category ? category.name : undefined} categorySlug={category ? category.slug : safeSlug} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {category && category.id && category.name ? (
+      <>
+        <!-- Breadcrumb Navigation -->
+        <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+          <ol class="flex items-center space-x-2 text-gray-600">
+            <li>
+              <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+            </li>
+            <li>
+              <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+              </svg>
+            </li>
+            <li class="text-gray-900 font-medium" aria-current="page">
+              {category.name || 'Category'}
+            </li>
+          </ol>
+        </nav>
+
+        <div class="mb-10 text-center">
+          {category.image_url && (
+            <div class="mb-6">
+              <img
+                src={category.image_url}
+                alt={category.name}
+                class="w-32 h-32 rounded-full object-cover mx-auto shadow-lg"
+                loading="eager"
+              />
+            </div>
+          )}
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{category.name}</h1>
+          {category.description && (
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">{category.description}</p>
+          )}
+          {category.sound_count !== undefined && (
+            <p class="text-gray-500 mt-4 text-sm">
+              <span class="font-semibold text-primary-600">{category.sound_count}</span> sounds available
+            </p>
+          )}
+        </div>
+
+        <SoundGrid
+          client:load
+          initialSounds={sounds}
+          category={category.id.toString()}
+          tag={category.name || safeSlug}
+        />
+      </>
+    ) : null}
+  </div>
+</Layout>
+

@@ -1,0 +1,131 @@
+---
+import HeaderClient from '@/components/HeaderClient';
+import Footer from '@/components/Footer.astro';
+import { soundService } from '@/services/sound.service';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  type?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
+  author?: string;
+}
+
+const {
+  title,
+  description = 'Your ultimate destination for high-quality sound effects and audio clips.',
+  keywords = 'sound effects, audio clips, soundboard, free sounds, sound library, audio effects, sound fx',
+  image = '/favicon.svg',
+  type = 'website',
+  canonicalURL,
+  noindex = false,
+  author = 'SoundBoard Go',
+} = Astro.props;
+
+// Fetch categories on the server so the header dropdown is ready on first paint
+let headerCategories = [];
+try {
+  headerCategories = await soundService.getCategories();
+} catch (error) {
+  console.error('Error fetching header categories:', error);
+  headerCategories = [];
+}
+
+// Get the current URL for canonical and Open Graph
+const siteURL = Astro.site?.href || (typeof Astro.site === 'string' ? Astro.site : 'https://soundboardgo.com');
+const currentURL = canonicalURL ? new URL(canonicalURL) : new URL(Astro.url.pathname, siteURL);
+const fullImageURL = image.startsWith('http') ? image : new URL(image, siteURL).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {/* Primary Meta Tags */}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="theme-color" content="#0284c7" />
+    
+    {/* Title */}
+    <title>{title}</title>
+    
+    {/* Canonical URL */}
+    <link rel="canonical" href={currentURL.href} />
+    
+    {/* Favicon */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={currentURL.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImageURL} />
+    <meta property="og:site_name" content="SoundBoard Go" />
+    <meta property="og:locale" content="en_US" />
+    
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentURL.href} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageURL} />
+    <meta name="twitter:creator" content="@soundboardgo" />
+    <meta name="twitter:site" content="@soundboardgo" />
+    
+    {/* Additional SEO */}
+    <meta name="generator" content={Astro.generator} />
+    <meta name="format-detection" content="telephone=no" />
+    
+    {/* Structured Data (JSON-LD) */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SoundBoard Go",
+      "url": siteURL,
+      "description": description,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${siteURL}/search?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50 antialiased">
+    <HeaderClient client:load initialCategories={headerCategories} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+

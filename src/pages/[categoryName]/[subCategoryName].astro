@@ -1,0 +1,266 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SoundGrid from '@/components/SoundGrid';
+import SearchSection from '@/components/SearchSection';
+import { soundService } from '@/services/sound.service';
+import type { SoundButton as SoundButtonType, Category } from '@/types';
+
+// Mark this route as server-rendered (not pre-rendered at build time)
+export const prerender = false;
+
+const { categoryName, subCategoryName } = Astro.params;
+
+// Validate categoryName and subCategoryName - redirect if undefined, null, empty, or "undefined"
+if (!categoryName || categoryName === 'undefined' || typeof categoryName !== 'string' || categoryName.trim() === '') {
+  return Astro.redirect('/');
+}
+
+if (!subCategoryName || subCategoryName === 'undefined' || typeof subCategoryName !== 'string' || subCategoryName.trim() === '') {
+  return Astro.redirect('/');
+}
+
+// Ensure categoryName and subCategoryName are strings
+const safeCategoryName = String(categoryName).trim();
+const safeSubCategoryName = String(subCategoryName).trim();
+
+let parentCategory: Category | null = null;
+let category: Category | null = null;
+let sounds: SoundButtonType[] = [];
+let hasMore: boolean = false;
+
+try {
+  // Fetch all categories and find the parent and subcategory
+  const allCategories = await soundService.getCategories();
+  
+  if (!allCategories || !Array.isArray(allCategories) || allCategories.length === 0) {
+    console.error('No categories found or invalid response');
+    return Astro.redirect('/');
+  }
+  
+  // Helper function to generate slug from name (spaces replaced with "-")
+  const generateSlug = (name: string): string => {
+    return name
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  };
+  
+  // Normalize the search categoryName and subCategoryName
+  let normalizedCategoryName = safeCategoryName;
+  let normalizedSubCategoryName = safeSubCategoryName;
+  
+  try {
+    normalizedCategoryName = decodeURIComponent(safeCategoryName);
+    normalizedSubCategoryName = decodeURIComponent(safeSubCategoryName);
+  } catch (e) {
+    normalizedCategoryName = safeCategoryName;
+    normalizedSubCategoryName = safeSubCategoryName;
+  }
+  
+  normalizedCategoryName = normalizedCategoryName.toLowerCase().trim();
+  normalizedSubCategoryName = normalizedSubCategoryName.toLowerCase().trim();
+  
+  // Find parent category first
+  parentCategory = allCategories.find(cat => {
+    if (!cat || !cat.id || !cat.name) return false;
+    
+    const catSlug = generateSlug(cat.name);
+    return catSlug === normalizedCategoryName || 
+           cat.name.toLowerCase().trim().replace(/\s+/g, '-') === normalizedCategoryName;
+  }) || null;
+  
+  // If parent category not found, try to find by ID
+  if (!parentCategory || !parentCategory.id) {
+    const numbersInName = safeCategoryName.match(/\d+/g);
+    if (numbersInName && numbersInName.length > 0) {
+      for (let i = numbersInName.length - 1; i >= 0; i--) {
+        const potentialId = parseInt(numbersInName[i], 10);
+        if (!isNaN(potentialId)) {
+          const foundById = allCategories.find(cat => cat.id === potentialId);
+          if (foundById && foundById.id) {
+            parentCategory = foundById;
+            break;
+          }
+        }
+      }
+    }
+  }
+  
+  // If still not found, redirect
+  if (!parentCategory || !parentCategory.id || !parentCategory.name) {
+    console.error('Parent category not found for categoryName:', safeCategoryName);
+    return Astro.redirect('/');
+  }
+  
+  // Find subcategory within parent's children
+  if (parentCategory.children && Array.isArray(parentCategory.children) && parentCategory.children.length > 0) {
+    category = parentCategory.children.find(child => {
+      if (!child || !child.id || !child.name) return false;
+      
+      // Check if child is active
+      if (child.is_active === false) return false;
+      
+      const childSlug = generateSlug(child.name);
+      return childSlug === normalizedSubCategoryName || 
+             child.name.toLowerCase().trim().replace(/\s+/g, '-') === normalizedSubCategoryName;
+    }) || null;
+    
+    // If not found by slug, try by ID
+    if (!category || !category.id) {
+      const numbersInSubName = safeSubCategoryName.match(/\d+/g);
+      if (numbersInSubName && numbersInSubName.length > 0) {
+        for (let i = numbersInSubName.length - 1; i >= 0; i--) {
+          const potentialId = parseInt(numbersInSubName[i], 10);
+          if (!isNaN(potentialId)) {
+            const foundById = parentCategory.children.find((child: any) => child.id === potentialId);
+            if (foundById && foundById.id) {
+              category = foundById;
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // If subcategory not found, redirect
+  if (!category || !category.id || !category.name) {
+    console.error('Subcategory not found for subCategoryName:', safeSubCategoryName, 'in category:', safeCategoryName);
+    return Astro.redirect(`/${safeCategoryName}`);
+  }
+  
+  // Ensure category has a slug for display purposes
+  if (!category.slug) {
+    category.slug = generateSlug(category.name);
+  }
+  
+  if (!parentCategory.slug) {
+    parentCategory.slug = generateSlug(parentCategory.name);
+  }
+  
+  // Call the category-wise API with subcategory_id, loading only 20 sounds initially
+  const soundsResult = await soundService.getSoundsWithPagination({ 
+    category: category.id,
+    page: 1,
+    page_size: 20
+  });
+  sounds = soundsResult.sounds;
+  hasMore = soundsResult.hasMore;
+  
+  // Allow page to render even if no sounds (might be empty category)
+} catch (error: any) {
+  console.error('Error fetching subcategory data:', error);
+  // Redirect to parent category page on error
+  return Astro.redirect(`/${safeCategoryName}`);
+}
+---
+
+<Layout
+  title={category ? `${category.name} Sound Effects - ${category.name} Audio Clips | SoundBoard Go` : 'Subcategory - SoundBoard Go'}
+  description={category && category.description ? category.description : `Browse ${category ? category.name : 'sound'} effects and audio clips. High-quality ${category ? category.name : 'sound'} sounds for your projects.`}
+  keywords={category ? `${category.name}, ${category.name} sounds, ${category.name} audio, ${category.name} sound effects, ${category.name} clips` : 'sound effects, audio clips'}
+  image={category && category.image_url ? category.image_url : undefined}
+  type="website"
+  canonicalURL={category && parentCategory ? (Astro.site ? new URL(`/${parentCategory.slug}/${category.slug}`, Astro.site).href : `https://soundboardgo.com/${parentCategory.slug}/${category.slug}`) : undefined}
+>
+  {category && category.id && category.name ? (
+    <>
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-br from-purple-600 via-slate-900 to-slate-900 text-white py-10 md:py-10 overflow-hidden">
+        <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0); background-size: 40px 40px;"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          {category.image_url ? (
+            <div class="mb-4">
+              <img 
+                src={category.image_url} 
+                alt={category.name} 
+                class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover mx-auto shadow-lg" 
+                loading="eager" 
+              />
+            </div>
+          ) : null}
+          {parentCategory && parentCategory.name && (
+            <p class="text-sm uppercase tracking-[0.4em] text-purple-200">{parentCategory.name}</p>
+          )}
+          <h1 class="text-2xl md:text-4xl font-bold drop-shadow">{category.name}</h1>
+          {category.description ? (
+            <p class="text-base md:text-lg text-slate-200 max-w-3xl mx-auto">
+              {category.description}
+            </p>
+          ) : (
+            <p class="text-base md:text-lg text-slate-200 max-w-3xl mx-auto">
+              Explore {category.name} sound effects and audio clips for your projects.
+            </p>
+          )}
+          {category.sound_count !== undefined && (
+            <p class="text-sm text-purple-200 mt-2">
+              <span class="font-semibold">{category.sound_count}</span> sounds available
+            </p>
+          )}
+          
+          <!-- Search Field in Hero Section -->
+          <div class="mt-6 max-w-2xl mx-auto">
+            <SearchSection client:load variant="hero" category={category.name} categorySlug={category.slug} />
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Section -->
+      <section class="pt-5 pb-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Breadcrumb Navigation -->
+          <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2 text-gray-600">
+              <li>
+                <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+              </li>
+              <li>
+                <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+              </li>
+              {parentCategory && parentCategory.name && (
+                <>
+                  <li>
+                    <a href={`/${parentCategory.slug || safeCategoryName}`} class="hover:text-primary-600 transition-colors">{parentCategory.name}</a>
+                  </li>
+                  <li>
+                    <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </li>
+                </>
+              )}
+              <li class="text-gray-900 font-medium" aria-current="page">
+                {category.name || 'Subcategory'}
+              </li>
+            </ol>
+          </nav>
+
+          {sounds.length > 0 ? (
+            <SoundGrid
+              client:load
+              initialSounds={sounds}
+              category={category.id.toString()}
+              tag={category.name || safeSubCategoryName}
+              initialHasMore={hasMore}
+            />
+          ) : (
+            <div class="text-center py-16 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+              <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h2 class="text-2xl font-bold text-gray-900 mb-2">No Data Available</h2>
+              <p class="text-gray-500 max-w-md mx-auto">
+                There are currently no sounds available in this subcategory. Please check back later or explore other categories.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+    </>
+  ) : null}
+</Layout>
+

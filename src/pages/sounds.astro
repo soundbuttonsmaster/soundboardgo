@@ -1,0 +1,110 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SoundGrid from '@/components/SoundGrid';
+import { soundService } from '@/services/sound.service';
+import type { SoundButton as SoundButtonType } from '@/types';
+
+let newSounds: SoundButtonType[] = [];
+let trendingSounds: SoundButtonType[] = [];
+
+try {
+  const [newResult, trendingResult] = await Promise.all([
+    soundService.getNewSounds(undefined, 1, 18),
+    soundService.getTrendingSounds(undefined, 1, 18),
+  ]);
+  newSounds = newResult.sounds;
+  trendingSounds = trendingResult.sounds;
+} catch (error) {
+  console.error('Error fetching sounds for sounds page:', error);
+}
+---
+
+<Layout
+  title="New & Trending Sounds | SoundBoard Go"
+  description="Browse the latest and most popular sounds on SoundBoard Go. Discover fresh drops and trending audio clips with load more support."
+  keywords="new sounds, trending sounds, popular audio, latest sound effects, soundboard trending"
+  type="website"
+  canonicalURL={Astro.site ? new URL('/sounds', Astro.site).href : undefined}
+>
+  <section id="top" class="relative bg-slate-900 text-white py-4 md:py-5 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-600/70 via-slate-900 to-slate-900"></div>
+    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <p class="text-sm uppercase tracking-[0.3em] text-primary-200">Curated Collections</p>
+      <h1 class="text-3xl md:text-5xl font-bold drop-shadow">
+        New & Trending Sounds
+      </h1>
+      <p class="text-base md:text-lg text-slate-200 max-w-3xl mx-auto">
+        Stay in sync with the freshest sound drops and the most played clips across the platform. Load more to keep the vibe going.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 text-xs uppercase tracking-widest">
+        <span class="px-4 py-1 rounded-full bg-white/10 border border-white/15">Real-time updates</span>
+        <span class="px-4 py-1 rounded-full bg-white/10 border border-white/15">Creator favorites</span>
+        <span class="px-4 py-1 rounded-full bg-white/10 border border-white/15">Load more ready</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-primary-600 mb-2">
+            <span class="w-2 h-2 rounded-full bg-primary-500"></span> Freshly uploaded
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900">New Arrivals</h2>
+          <p class="text-gray-500 mt-2 max-w-2xl">Hot off the press. Explore the latest sounds added by our community and in-house curators.</p>
+        </div>
+        <a href="#trending-sounds" class="text-sm font-semibold text-primary-600 hover:text-primary-700 inline-flex items-center gap-2">
+          Jump to Trending
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      {newSounds.length > 0 ? (
+      <SoundGrid
+        client:load
+        initialSounds={newSounds}
+      />
+      ) : (
+        <div class="text-center py-12 bg-gray-50 rounded-2xl">
+          <p class="text-gray-500">No new sounds available right now. Check back soon!</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="py-16 bg-gradient-to-b from-gray-50 to-white" id="trending-sounds">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-orange-600 mb-2">
+            <span class="w-2 h-2 rounded-full bg-orange-500"></span> community favourites
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900">Trending Now</h2>
+          <p class="text-gray-500 mt-2 max-w-2xl">The sounds everyone is replaying. Updated live based on platform-wide activity.</p>
+        </div>
+        <a href="#top" class="text-sm font-semibold text-orange-600 hover:text-orange-700 inline-flex items-center gap-2">
+          Back to Top
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7 7 7M12 3v18" />
+          </svg>
+        </a>
+      </div>
+
+      {trendingSounds.length > 0 ? (
+      <SoundGrid
+        client:load
+        initialSounds={trendingSounds}
+      />
+      ) : (
+        <div class="text-center py-12 bg-white rounded-2xl border border-gray-100">
+          <p class="text-gray-500">Trending sounds are loading. Please refresh in a moment.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+

@@ -1,0 +1,163 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SoundDetailPlayer from '@/components/SoundDetailPlayer';
+import SoundDetailActions from '@/components/SoundDetailActions';
+import SoundGrid from '@/components/SoundGrid';
+import { soundService } from '@/services/sound.service';
+import type { SoundButton as SoundButtonType } from '@/types';
+
+// Mark this route as server-rendered (not pre-rendered at build time)
+export const prerender = false;
+
+const { id } = Astro.params;
+
+let sound: SoundButtonType | null = null;
+let relatedSounds: SoundButtonType[] = [];
+
+try {
+  const soundId = parseInt(id || '0');
+  if (soundId > 0) {
+    sound = await soundService.getSoundById(soundId);
+    
+    // Get related sounds using the API endpoint
+    if (sound) {
+      const relatedSoundsData = await soundService.getRelatedSounds(soundId, 12);
+      relatedSounds = relatedSoundsData.sounds;
+    }
+  }
+} catch (error) {
+  console.error('Error fetching sound data:', error);
+}
+---
+
+<Layout
+  title={sound ? `Play ${sound.title || sound.name} Sound Button for Meme Soundboard` : 'Sound Not Found | SoundBoard Go'}
+  description={sound ? `Download and play the ${sound.title || sound.name} sound button for your soundboard. This trending sound effect is perfect for meme creation, gaming, streaming, and sharing viral content across platforms!` : 'Sound effect not found.'}
+  keywords={sound ? `${sound.title || sound.name}, ${sound.tag || ''}, sound effects, audio clips, soundboard, meme sounds, sound buttons` : 'sound effects'}
+  image={sound?.image_url}
+  type="website"
+  canonicalURL={sound ? (Astro.site ? new URL(`/sounds/${sound.id}`, Astro.site).href : undefined) : undefined}
+>
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {sound ? (
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+          {/* Left Column - Button with Title and Stats Below */}
+          <div class="lg:col-span-1">
+            <div class="flex flex-col items-center">
+              {/* Play Button */}
+              <SoundDetailPlayer client:load sound={sound} hideActions={true} />
+              
+              {/* Title Below Button */}
+              <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mt-4 text-center">
+                {sound.title || sound.name}
+              </h1>
+
+              {/* Stats Below Title */}
+              <div class="mt-4 space-y-2 w-full">
+                <div class="flex items-center gap-2 justify-center">
+                  <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                  </svg>
+                  <span class="text-gray-700 text-sm">
+                    {sound.favorites_count || 0} users favorited this sound button
+                  </span>
+                </div>
+                <div class="flex items-center gap-2 justify-center">
+                  <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                  </svg>
+                  <span class="text-gray-700 text-sm">
+                    {sound.play_count ? sound.play_count.toLocaleString() : '0'} viewed this sound button
+                  </span>
+                </div>
+                <div class="flex items-center gap-2 justify-center">
+                  <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                  </svg>
+                  <span class="text-gray-700 text-sm">
+                    {sound.play_count ? sound.play_count.toLocaleString() : '0'} users played this sound button
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Action Buttons and Content */}
+          <div class="lg:col-span-2">
+
+            {/* Description */}
+            <div class="mb-4">
+              {sound.description ? (
+                <p class="text-gray-700 leading-relaxed">
+                  {sound.description}
+                </p>
+              ) : (
+                <p class="text-gray-700 leading-relaxed">
+                  Play the {sound.title || sound.name} sound button right now! Download the high-quality sound effect to your device, share with friends, and enjoy unlimited playback!
+                </p>
+              )}
+            </div>
+
+            {/* Tags */}
+            {sound.tag && (
+              <div class="mb-4">
+                <span class="inline-block px-3 py-1 bg-gray-100 text-gray-800 rounded text-sm font-medium">
+                  {sound.tag}
+                </span>
+              </div>
+            )}
+
+             {/* Action Buttons */}
+            <SoundDetailActions client:load sound={sound} />
+            
+          </div>
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <svg
+            class="w-24 h-24 text-gray-300 mx-auto mb-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <h1 class="text-3xl font-bold text-gray-900 mb-4">Sound Not Found</h1>
+          <p class="text-gray-600 mb-6">The sound you're looking for doesn't exist or has been removed.</p>
+          <a
+            href="/"
+            class="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors"
+          >
+            Go to Homepage
+          </a>
+        </div>
+      )}
+    </div>
+
+
+  </section>
+
+  {/* Related Sounds Section */}
+  {sound && relatedSounds.length > 0 && (
+    <section class="py-6 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="mb-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1">Related Sounds</h2>
+          <p class="text-gray-600">More sounds you might like</p>
+        </div>
+        <SoundGrid
+          client:load
+          initialSounds={relatedSounds}
+        />
+      </div>
+    </section>
+  )}
+</Layout>
+

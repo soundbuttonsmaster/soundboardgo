@@ -1,0 +1,149 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SoundGrid from '@/components/SoundGrid';
+import SearchSection from '@/components/SearchSection';
+import { soundService } from '@/services/sound.service';
+import type { SoundButton as SoundButtonType, Category } from '@/types';
+
+// Mark this route as server-rendered (not pre-rendered at build time)
+export const prerender = false;
+
+const { slug } = Astro.params;
+const { q } = Astro.url.searchParams;
+const searchQuery = q || '';
+
+let category: Category | null = null;
+let searchResults: SoundButtonType[] = [];
+
+try {
+  category = await soundService.getCategoryBySlug(slug);
+  
+  if (category && searchQuery) {
+    // Search within this category
+    const allCategorySounds = await soundService.getSoundsByTag(category.name);
+    // Filter by search query
+    searchResults = allCategorySounds.filter((sound) => 
+      sound.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (sound.tag && sound.tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
+  }
+} catch (error) {
+  console.error('Error fetching category search results:', error);
+}
+---
+
+<Layout
+  title={category && searchQuery ? `Search "${searchQuery}" in ${category.name} | SoundBoard Go` : category ? `Search in ${category.name} | SoundBoard Go` : 'Search - SoundBoard Go'}
+  description={category && searchQuery ? `Search results for "${searchQuery}" in ${category.name} category.` : category ? `Search for sounds in the ${category.name} category.` : 'Search for sounds by category.'}
+  keywords={category ? `${category.name}, ${searchQuery}, sound effects, audio clips` : 'search, sound effects'}
+  type="website"
+  canonicalURL={category ? (Astro.site ? new URL(`/categories/${category.slug}/search?q=${encodeURIComponent(searchQuery)}`, Astro.site).href : undefined) : undefined}
+>
+  <!-- Search Section -->
+  <SearchSection client:load category={category?.name || slug} categorySlug={category?.slug || slug} initialQuery={searchQuery} />
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {category ? (
+        <>
+          {category.image_url && (
+            <div class="mb-6 text-center">
+              <img
+                src={category.image_url}
+                alt={category.name}
+                class="w-24 h-24 rounded-full object-cover mx-auto shadow-lg"
+                loading="eager"
+              />
+            </div>
+          )}
+          
+          {searchQuery ? (
+            <>
+              <div class="mb-10 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                  Search in {category.name}
+                </h1>
+                <p class="text-gray-600 text-lg">
+                  Found {searchResults.length} {searchResults.length === 1 ? 'sound' : 'sounds'} for "
+                  <span class="font-semibold text-primary-600">{searchQuery}</span>
+                  "
+                </p>
+              </div>
+
+              {searchResults.length > 0 ? (
+                <SoundGrid
+                  client:load
+                  initialSounds={searchResults}
+                  tag={category.name}
+                />
+              ) : (
+                <div class="text-center py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                  <svg
+                    class="w-16 h-16 text-gray-300 mx-auto mb-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <p class="text-gray-500 text-lg mb-2">
+                    No sounds found for "{searchQuery}" in {category.name}
+                  </p>
+                  <p class="text-gray-400 text-sm">
+                    Try different keywords or browse all {category.name} sounds
+                  </p>
+                  <a
+                    href={`/categories/${category.slug}`}
+                    class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium"
+                  >
+                    View all {category.name} sounds →
+                  </a>
+                </div>
+              )}
+            </>
+          ) : (
+            <div class="text-center py-12">
+              <div class="inline-flex items-center justify-center w-12 h-12 bg-primary-100 rounded-full mb-4">
+                <svg
+                  class="w-6 h-6 text-primary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                Search in {category.name}
+              </h1>
+              <p class="text-gray-600 text-lg">
+                Use the search bar above to find sounds in this category
+              </p>
+            </div>
+          )}
+        </>
+      ) : (
+        <div class="text-center py-12">
+          <h1 class="text-2xl font-bold text-gray-900 mb-4">Category not found</h1>
+          <a
+            href="/"
+            class="inline-block text-primary-600 hover:text-primary-700 font-medium"
+          >
+            ← Back to home
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
