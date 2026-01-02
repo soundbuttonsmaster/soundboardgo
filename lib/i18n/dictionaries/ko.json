@@ -1,0 +1,244 @@
+{
+  "common": {
+    "play": "재생",
+    "pause": "일시정지",
+    "search": "검색",
+    "searchResults": "검색 결과",
+    "loading": "로딩 중...",
+    "error": "문제가 발생했습니다",
+    "noResults": "결과를 찾을 수 없습니다",
+    "favorites": "즐겨찾기",
+    "mySoundboards": "내 사운드보드",
+    "allSounds": "모든 사운드",
+    "share": "공유",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "seeAll": "모두 보기",
+    "home": "홈",
+    "showing": "표시 중",
+    "of": "/",
+    "sounds": "사운드"
+  },
+  "nav": {
+    "home": "홈",
+    "new": "신규",
+    "trending": "트렌딩",
+    "categories": "카테고리",
+    "soundboards": "사운드보드",
+    "pages": "페이지",
+    "about": "회사 소개",
+    "contact": "문의하기",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "dmca": "DMCA",
+    "disclaimer": "면책조항"
+  },
+  "categories": {
+    "meme": "밈",
+    "reaction": "리액션",
+    "games": "게임",
+    "movies": "영화",
+    "animeManga": "애니메이션 & 만화",
+    "prank": "장난",
+    "tiktokTrends": "틱톡 트렌드",
+    "creativity": "창의성",
+    "politics": "정치",
+    "soundEffects": "효과음"
+  },
+  "auth": {
+    "login": "로그인",
+    "register": "회원가입",
+    "logout": "로그아웃",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "username": "사용자명",
+    "fullName": "이름",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "noAccount": "계정이 없으신가요?",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "signUp": "가입하기",
+    "signIn": "로그인",
+    "signUpNow": "지금 가입하세요",
+    "loginNow": "지금 로그인하세요"
+  },
+  "upload": {
+    "title": "사운드 업로드",
+    "description": "컬렉션에 새로운 사운드를 업로드하세요",
+    "soundName": "사운드 이름",
+    "soundFile": "사운드 파일",
+    "category": "카테고리",
+    "selectCategory": "카테고리 선택",
+    "uploadButton": "업로드",
+    "uploading": "업로드 중...",
+    "success": "사운드가 성공적으로 업로드되었습니다!",
+    "error": "업로드에 실패했습니다"
+  },
+  "home": {
+    "title": "Soundboard Go: Meme Soundboard Unblocked에서 사운드 버튼을 재생하세요",
+    "subtitle": "Soundboard Go는 사운드 버튼, 사운드 이펙트 및 잠금 해제된 밈 사운드보드의 가장 큰 컬렉션을 제공합니다. 게이밍, 스트리밍, 콘텐츠 생성 및 재미를 위해 사운드를 재생, 다운로드 및 공유하세요!",
+    "searchPlaceholder": "사운드 검색...",
+    "popularSounds": "인기 사운드",
+    "browseSoundboards": "사운드보드 둘러보기",
+    "trending": "사운드 버튼: 트렌딩",
+    "newSounds": "사운드 버튼: 신규",
+    "exploreTrending": "더 많은 트렌딩 사운드 살펴보기",
+    "exploreNew": "더 많은 신규 사운드 살펴보기",
+    "welcomeTitle": "사운드보드 Go는 최고의 사운드 버튼을 찾을 수 있는 곳입니다!",
+    "welcomeDescription": "사운드보드 Go는 재미있는 밈 사운드를 즐길 수 있는 최고의 플랫폼입니다. 저희 사이트에는 재미있는 장난 사운드, 바이럴 밈, 인기 오디오 클립을 포함한 수천 개의 사운드 버튼이 있습니다. 사운드보드 Go를 통해 언제든지 좋아하는 사운드로 자신을 표현할 수 있습니다. 게이머, 스트리머, 그리고 모든 사람들이 사운드보드 Go의 다양한 사운드를 즐길 수 있습니다.",
+    "whyChooseTitle": "Soundboard Go를 선택해야 하는 이유는 무엇일까요?",
+    "whyChooseDescription": "Soundboard Go는 사용하기 쉽고 누구나 즐길 수 있기 때문에 좋은 선택입니다. 단 한 번의 클릭으로 인기 있는 소리, 밈, 효과음을 재생할 수 있습니다. 다운로드 없이 온라인으로 바로 사용할 수 있기 때문에 학교나 직장 등 어디에서든 이용 가능합니다.",
+    "dailyUpdates": "빠르고 무료이며, 게임을 하거나, 동영상을 보거나, 농담을 하거나, 그냥 재미있게 시간을 보내기에 좋습니다.최고의 최신 오디오를 항상 이용할 수 있도록 매일 새로운 밈 기반 오디오를 추가합니다!",
+    "featuresTitle": "사운드보드 Go의 주요 기능",
+    "featuresIntro": "사운드보드 Go는 사이트 사용을 최대한 재미있고 만족스럽게 만들 수 있는 다양한 기능을 제공합니다.\n즉시 재생: 모든 사운드 버튼은 지연이나 끊김 없이 재생됩니다. 스트리밍, 반응 비디오, 장난에 완벽합니다.",
+    "instantSoundTitle": " 즉시 재생",
+    "instantSoundDesc": " 모든 사운드 버튼은 지연이나 끊김 없이 재생됩니다. 스트리밍, 반응 비디오, 장난에 완벽합니다.",
+    "largestLibraryTitle": "가장 큰 사운드 라이브러리",
+    "largestLibraryDesc": " 10,000개 이상의 사운드 버튼, 밈 버튼, 장난 사운드 효과, 바이럴 사운드 효과를 한 곳에서 이용할 수 있습니다.",
+    "dailyContentTitle": "매일 콘텐츠 업데이트",
+    "dailyContentDesc": "신선한 콘텐츠와 밈 사운드보드 오디오 파일이 매일 라이브러리에 추가되어 지속적인 즐거움을 제공합니다.",
+    "customCollectionsTitle": "맞춤 컬렉션",
+    "customCollectionsDesc": "사용자는 좋아하는 사운드로 자신만의 맞춤 컬렉션을 원하는 방식으로 구성하여 만들 수 있습니다.",
+    "highQualityAudioTitle": "고품질 오디오",
+    "highQualityAudioDesc": "새로운 사운드 효과가 생성될 때마다 전문가 수준의 선명한 사운드 효과를 제공합니다.",
+    "browserBasedTitle": "브라우저 기반",
+    "browserBasedDesc": "아무것도 다운로드할 필요 없이 브라우저를 통해 즉시 사운드 효과에 액세스할 수 있습니다.",
+    "oneClickShare": " 원클릭 공유",
+    "oneClickShareDesc": "모든 소셜 플랫폼, Discord, WhatsApp 또는 직접 링크를 통해 재미있는 사운드 효과를 한 번의 클릭으로 공유할 수 있습니다.",
+    "categoriesTitle": "사운드보드 카테고리 탐색",
+    "memesCategoryTitle": " 밈",
+    "memesCategoryDesc": "인터넷에서 가장 인기 있는 바이럴 콘텐츠의 가장 사랑받는 오디오를 여기에서 찾아보세요. 즐겨보세요!",
+    "reactionsCategoryTitle": "반응",
+    "reactionsCategoryDesc": "모든 사람이 듣고 소셜 미디어를 통해 감정을 공유할 수 있는 오디오 파일로 자신을 표현하고 반응하세요!",
+    "prankCategoryTitle": "장난",
+    "prankCategoryDesc": " 장난 오디오 파일로 사랑하는 사람들을 놀라게 해보세요. 이제 재미를 시작해 보세요!",
+    "trendingCategoryTitle": "인기 급상승",
+    "trendingCategoryDesc": "모든 소셜 미디어 채널에서 현재 가장 많이 공유되고 시청되는 인기 오디오 및 비디오 콘텐츠입니다.",
+    "gamingCategoryTitle": "게임",
+    "gamingCategoryDesc": "온라인 또는 오프라인으로 비디오 게임을 플레이할 때 사용할 수 있는 최고의 음향 효과를 모두 제공합니다.",
+    "moviesCategoryTitle": "영화",
+    "moviesCategoryDesc": "좋아하는 영화 명대사와 음향 효과를 모두 만나보세요.",
+    "unblockedTitle": "사운드보드 차단 해제 - 언제 어디서든 플레이하세요",
+    "unblockedDescription": "Soundboard Go를 사용하면 모든 사운드보드를 차단 해제하고 언제 어디서든 들을 수 있습니다. 학교나 직장에서도 완벽하게 작동하는 사운드보드에 접속할 수 있으므로, 누구나 제약 없이 엔터테인먼트를 즐길 수 있어야 한다고 생각합니다.",
+    "worksOnTitle": "다음 기기에서 완벽하게 작동합니다.",
+    "worksOnDevices": "iPhone 및 Android 기기\nWindows 및 Mac 컴퓨터\n학생용 Chromebook\n태블릿 및 iPad\n모든 최신 웹 브라우저",
+    "noRegistration": "Soundboard Go는 등록이나 다운로드 없이 사용할 수 있습니다. 앱을 열고 좋아하는 밈 사운드보드를 클릭하기만 하면 바로 사용할 수 있습니다.",
+    "personalSoundboardTitle": "나만의 사운드보드를 만들어 보세요",
+    "personalSoundboardDescription": "맞춤형 사운드보드 제작 기능으로 Soundboard Go 경험을 한 차원 높여보세요. Soundboard Go 플랫폼에서는 다운로드나 등록 없이 언제든지 사운드보드를 만들고, 정리하고, 저장하고, 재생할 수 있습니다. 방대한 밈 사운드, 장난 사운드, 바이럴 음향 효과 중에서 원하는 버튼을 찾은 다음, 하트 아이콘을 클릭하여 컬렉션에 저장하세요.",
+    "personalSoundboardHow": "그런 다음 분위기, 카테고리 또는 상황에 따라 폴더를 만들어 컬렉션을 정리하면 쉽게 접근할 수 있습니다.",
+    "perfectForEveryoneTitle": "모든 사람에게 도움이 됩니다.",
+    "perfectForEveryoneDescription": "스트리머들은 방송 중에 재미있는 소리를 추가하기 위해 사운드보드를 사용합니다. Soundboard Go를 사용하면 밈 버튼을 즉시 사용하여 시청자의 시선을 사로잡을 수 있습니다. 콘텐츠 제작자도 티저 영상이나 팟캐스트 제작에 음향 효과를 사용합니다.",
+    "faqTitle": "FAQ",
+    "faq1Question": "Q1. 사운드보드 고(Soundboard Go)는 무료인가요?",
+    "faq1Answer": "네! 무료입니다! Soundboard Go는 완전 무료입니다! 숨겨진 비용이나 구독료가 없습니다. 모든 사운드 버튼, 밈 사운드 및 기능은 즉시 무료로 사용할 수 있습니다!",
+    "faq2Question": "Q2. Soundboard Go를 사용하려면 앱을 다운로드해야 하나요?",
+    "faq2Answer": "전혀 아닙니다. Soundboard Go는 스마트폰, 데스크톱, Chromebook, 태블릿 등 모든 기기의 모든 브라우저에서 사용할 수 있습니다.",
+    "faq3Question": "Q3. 학교나 직장에서 Soundboard Go를 사용할 수 있나요?",
+    "faq3Answer": "물론입니다. 저희 사운드보드는 차단 해제 사이트로, 어디서나 액세스할 수 있으며 어디에 있든 모든 밈 사운드보드 콘텐츠에 완전히 액세스할 수 있습니다!",
+    "faq4Question": "Q4. 커스텀 사운드보드를 만드는 과정은 무엇인가요?",
+    "faq4Answer": "커스텀 사운드보드를 만들려면 무료 계정에 가입하고 사운드 라이브러리를 탐색한 다음 버튼의 하트 버튼을 선택하여 저장하기만 하면 됩니다. 언제든지 저장한 사운드의 컬렉션을 만들 수 있습니다.",
+    "faq5Question": "Q5. Soundboard Go는 자주 새로운 사운드를 추가하나요?",
+    "faq5Answer": "매일 라이브러리에 새로운 업데이트를 업로드하여 새로운 밈 버튼, 트렌딩 장난 사운드, 바이럴 사운드 효과, 기타 새로운 밈 사운드보드 자료를 웹 전체에서 추가합니다."
+  },
+  "soundboard": {
+    "sounds": "사운드",
+    "noSounds": "이 사운드보드에 아직 사운드가 없습니다",
+    "addToFavorites": "즐겨찾기에 추가",
+    "removeFromFavorites": "즐겨찾기에서 제거",
+    "addToSoundboard": "내 사운드보드에 추가",
+    "playCount": "재생"
+  },
+  "favorites": {
+    "title": "내 즐겨찾기",
+    "empty": "아직 즐겨찾기가 없습니다",
+    "emptyDescription": "사운드의 하트 아이콘을 클릭하여 즐겨찾기에 추가하세요"
+  },
+  "mySoundboards": {
+    "title": "내 사운드보드",
+    "create": "사운드보드 만들기",
+    "createTitle": "새 사운드보드 만들기",
+    "namePlaceholder": "사운드보드 이름 입력",
+    "empty": "아직 사운드보드가 없습니다",
+    "emptyDescription": "좋아하는 사운드로 나만의 사운드보드를 만드세요",
+    "delete": "삭제",
+    "edit": "편집"
+  },
+  "trending": {
+    "title": "인기 사운드 버튼",
+    "description": "가장 인기 있는 사운드 버튼과 트렌딩 밈 사운드보드를 탐색하세요.",
+    "h1": "트렌딩 사운드 버튼 및 사운드보드",
+    "shortDescription": "Soundboard Go에서 트렌딩 밈 사운드보드 및 사운드 버튼을 탐색하세요.",
+    "empty": "아직 트렌딩 사운드를 사용할 수 없습니다"
+  },
+  "new": {
+    "title": "새로운 사운드 버튼",
+    "description": "최근 추가된 사운드 버튼과 최신 밈 사운드보드를 탐색하세요!",
+    "h1": "새 사운드 버튼 및 사운드보드",
+    "shortDescription": "Soundboard Go에서 새 사운드 버튼과 밈 사운드보드를 발견하세요!",
+    "empty": "아직 신규 사운드를 사용할 수 없습니다"
+  },
+  "pages": {
+    "about": {
+      "title": "회사 소개",
+      "description": "사운드 버튼 맥스와 우리의 사명에 대해 알아보세요"
+    },
+    "contact": {
+      "title": "문의하기",
+      "description": "궁금한 점이 있으시거나 도움이 필요하시면 연락 주세요"
+    },
+    "privacy": {
+      "title": "개인정보처리방침",
+      "description": "귀하의 데이터를 수집, 사용 및 보호하는 방법을 알아보세요"
+    },
+    "terms": {
+      "title": "이용약관",
+      "description": "서비스 이용에 대한 조건을 읽어보세요"
+    },
+    "dmca": {
+      "title": "DMCA",
+      "description": "저작권 정책 및 DMCA 통지 절차"
+    },
+    "disclaimer": {
+      "title": "면책조항",
+      "description": "법적 고지 및 면책조항"
+    }
+  },
+  "footer": {
+    "copyright": "사운드 버튼 맥스",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "contact": "문의",
+    "about": "회사 소개",
+    "dmca": "DMCA",
+    "disclaimer": "면책조항"
+  },
+  "meta": {
+    "title": "SoundBoardGo: 잠금 해제된 사운드 버튼이 있는 밈 사운드보드",
+    "description": "수천 개의 사운드 버튼, 장난, 효과음 및 밈 버튼을 재생하고 다운로드하세요. Soundboard Go는 즉각적인 재미를 위한 무료 차단 해제 밈 사운드보드입니다."
+  },
+  "soundDetail": {
+    "addToSoundboard": "내 사운드보드에 추가",
+    "getRingtone": "벨소리 받기",
+    "downloadMp3": "MP3 다운로드",
+    "notificationSound": "알림음",
+    "socialMediaSharing": "소셜 미디어 공유",
+    "usersFavorited": "명의 사용자가 이 사운드 버튼을 즐겨찾기에 추가했습니다",
+    "viewed": "명이 이 사운드 버튼을 조회했습니다",
+    "played": "명이 이 사운드 버튼을 재생했습니다",
+    "youMightAlsoLike": "추천",
+    "exploreMore": "더 많은 사운드 살펴보기",
+    "addedToFavorites": "즐겨찾기에 추가되었습니다!",
+    "removedFromFavorites": "즐겨찾기에서 제거되었습니다!",
+    "addedToSoundboard": "내 사운드보드에 추가되었습니다",
+    "removedFromSoundboard": "내 사운드보드에서 제거되었습니다"
+  },
+  "loadMore": {
+    "button": "더 보기",
+    "loading": "로딩 중..."
+  },
+  "search": {
+    "metaTitle": "{Search Name} 효과음 버튼 | SoundBoardGo",
+    "metaDescription": "사운드보드용 {Search Name} 효과음 버튼을 발견하세요! 장난, 콘텐츠 제작, 게임 스트리밍, 친구들과 웃음 공유에 완벽합니다.",
+    "h1": "{Search Name} 효과음 버튼"
+  }
+}

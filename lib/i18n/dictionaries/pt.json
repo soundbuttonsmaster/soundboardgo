@@ -1,0 +1,243 @@
+{
+  "common": {
+    "play": "Reproduzir",
+    "pause": "Pausar",
+    "search": "Pesquisar",
+    "searchResults": "Resultados da pesquisa",
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "noResults": "Nenhum resultado encontrado",
+    "favorites": "Favoritos",
+    "mySoundboards": "Meus Painéis",
+    "allSounds": "Todos os Sons",
+    "share": "Compartilhar",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "seeAll": "Ver Tudo",
+    "home": "Início",
+    "showing": "Mostrando",
+    "of": "de",
+    "sounds": "sons"
+  },
+  "nav": {
+    "home": "Início",
+    "new": "Novo",
+    "trending": "Tendências",
+    "categories": "Categorias",
+    "soundboards": "Painéis de Som",
+    "pages": "Páginas",
+    "about": "Sobre Nós",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "dmca": "DMCA",
+    "disclaimer": "Aviso Legal",
+    "login": "Entrar",
+    "register": "Registrar",
+    "upload": "Enviar",
+    "logout": "Sair"
+  },
+  "home": {
+    "title": "Soundboard Go: Reproduza botões de som com o Meme Soundboard Unblocked",
+    "subtitle": "Soundboard Go oferece a maior coleção de botões de som, efeitos sonoros e meme soundboard desbloqueado. Reproduza, baixe e compartilhe sons para jogos, transmissão, criação de conteúdo e diversão!",
+    "searchPlaceholder": "Pesquisar sons...",
+    "popularSounds": "Sons Populares",
+    "browseSoundboards": "Explorar Painéis",
+    "trending": "Botões de Som: Tendências",
+    "newSounds": "Botões de Som: Novo",
+    "exploreTrending": "Explorar Mais Sons em Tendência",
+    "exploreNew": "Explorar Mais Sons Novos",
+    "welcomeTitle": "Bem-vindo ao Soundboard Go: Sua Experiência Definitiva de Botões de Som",
+    "welcomeDescription": "Soundboard Go é a fonte número um de entretenimento de soundboard de memes. O nosso portal fornece para todos um verdadeiro mar de botões de som de onde escolher, incluindo os sons virais dos memes, sons engraçados para pegadinhas e ainda clipes de áudio de grande popularidade que prometem diversão instantânea! Seja você gamer, streamer, criador de conteúdo ou usuário ocasional, você pode encontrar tudo o que precisa no Soundboard Go!",
+    "whyChooseTitle": "Por Que Escolher o Soundboard Go?",
+    "whyChooseDescription": "O que diferencia o Soundboard Go de outros sites semelhantes? Nossa equipe dedicou tempo e esforço para garantir a experiência mais amigável no mundo dos soundboards de memes! Graças aos nossos servidores de alto desempenho, sempre que você quiser tocar um som para ter uma ótima reação instantânea, lhe garantimos que o terá em suas mãos num piscar de olhos! O projeto limpo e moderno do nosso site faz com que seja bem fácil e prazeroso para navegar entre milhares de sons diferentes através do site Soundboard Go .",
+    "dailyUpdates": "No Soundboard Go, atualizamos nossa coleção de sons todos os dias com sons novos e empolgantes que estão atualmente em tendência. Acompanhamos as tendências e sons virais em plataformas de mídia social como TikTok, YouTube, Twitter, etc., e trazemos novos áudios baseados em memes todos os dias para que você sempre tenha o mais recente e o melhor disponível à sua disposição!",
+    "featuresTitle": "Principais Recursos do Soundboard Go",
+    "featuresIntro": "O Soundboard Go inclui recursos que proporcionam ao usuário o máximo prazer e satisfação ao usar nosso site.",
+    "instantSoundTitle": "Som Instantâneo",
+    "instantSoundDesc": "Todos os botões de som são reproduzidos sem atraso ou lag. Produção oportuna para streams, vídeos de reação e pegadinhas.",
+    "largestLibraryTitle": "Maior Biblioteca de Sons",
+    "largestLibraryDesc": "Acesse mais de 10.000 botões de som, botões de memes, efeitos sonoros de pegadinhas e efeitos sonoros virais, tudo em um só lugar.",
+    "dailyContentTitle": "Atualizações Diárias de Conteúdo",
+    "dailyContentDesc": "Conteúdo fresco e arquivos de áudio de soundboard de memes são adicionados à nossa biblioteca diariamente para proporcionar diversão contínua.",
+    "customCollectionsTitle": "Coleções Personalizadas",
+    "customCollectionsDesc": "Os usuários podem criar sua própria coleção personalizada de sons favoritos organizados da maneira que preferirem.",
+    "highQualityAudioTitle": "Qualidade de Áudio de Alta Qualidade",
+    "highQualityAudioDesc": "Efeitos sonoros de nível profissional, cristalinos toda vez que você criar um novo efeito sonoro.",
+    "browserBasedTitle": "Baseado em Navegador",
+    "browserBasedDesc": "Não é necessário baixar nada. Acesse efeitos sonoros através do seu navegador instantaneamente.",
+    "oneClickShare": "Compartilhamento com Um Clique",
+    "oneClickShareDesc": "Formas de compartilhar efeitos sonoros de risada com um clique através de todas as plataformas sociais, Discord e WhatsApp ou links diretos para seus efeitos sonoros hilários.",
+    "categoriesTitle": "Explorar Categorias de Soundboard",
+    "memesCategoryTitle": "Memes",
+    "memesCategoryDesc": "Você pode encontrar o áudio mais amado do conteúdo viral mais popular da internet bem aqui. Divirta-se!",
+    "reactionsCategoryTitle": "Reações",
+    "reactionsCategoryDesc": "Expresse-se e responda com um arquivo de áudio para todos ouvirem e compartilharem nas redes sociais para transmitir uma emoção!",
+    "prankCategoryTitle": "Pegadinhas",
+    "prankCategoryDesc": "Surpreenda seus entes queridos com um arquivo de áudio de pegadinha. Que a diversão comece!",
+    "trendingCategoryTitle": "Tendências",
+    "trendingCategoryDesc": "Os elementos audiovisuais mais famosos atualmente sendo compartilhados e vistos em todos os canais de mídia social.",
+    "gamingCategoryTitle": "Gaming",
+    "gamingCategoryDesc": "Todos os melhores efeitos sonoros que você poderia pedir ao jogar videogames ao vivo ou offline.",
+    "moviesCategoryTitle": "Filmes",
+    "moviesCategoryDesc": "Todas as suas citações e efeitos sonoros favoritos de filmes.",
+    "unblockedTitle": "Soundboard Desbloqueado - Jogue em Qualquer Lugar, a Qualquer Momento",
+    "unblockedDescription": "O Soundboard Go permite que você desbloqueie todos os soundboards e ouça-os em qualquer lugar e a qualquer momento. Com acesso totalmente funcional ao soundboard tanto para a escola quanto para o trabalho, entendemos que todos deveriam ter uma maneira de obter entretenimento sem restrições.",
+    "worksOnTitle": "Funciona perfeitamente em:",
+    "worksOnDevices": "iPhones e dispositivos Android\ncomputadores Windows e Mac\nChromebooks para estudantes\ntablets e iPads\nqualquer navegador web moderno",
+    "noRegistration": "Não é necessário se registrar ou baixar nada para usar o Soundboard Go. Comece a usar o Soundboard Go simplesmente abrindo o aplicativo e clicando em um soundboard de memes que você goste.",
+    "personalSoundboardTitle": "Crie Seu Soundboard Pessoal",
+    "personalSoundboardDescription": "Com nosso criador de soundboard personalizado, você pode levar sua experiência com o Soundboard Go a um nível totalmente novo. A plataforma Soundboard Go permite que você crie, organize, armazene e reproduza quando quiser; nenhum download ou registro necessário.",
+    "personalSoundboardHow": "Com uma seleção massiva de sons de memes, sons de pegadinhas e efeitos sonoros virais, você pode encontrar um botão que deseja e salvá-lo em sua coleção simplesmente clicando no ícone de coração ao lado dele. Depois de fazer isso, crie pastas com base no humor, categoria e ocasião para manter sua coleção organizada e fácil de acessar.",
+    "perfectForEveryoneTitle": "Perfeito para Todos",
+    "perfectForEveryoneDescription": "Streamers utilizam o Soundboard Go para acesso imediato a botões de memes, o que ajuda a manter seus espectadores engajados. Produtores de conteúdo também usam nossos efeitos sonoros para criar vídeos teaser e podcasts. Usuários do Discord também utilizam sons apropriados, que elevam as conversas a proporções épicas. Participantes ocasionais podem descobrir e desfrutar de uma infinidade de efeitos sonoros de pegadinhas todos os dias, bem como conteúdo viral.",
+    "faqTitle": "Perguntas Frequentes (FAQ)",
+    "faq1Question": "P1. Preciso pagar para usar o Soundboard Go?",
+    "faq1Answer": "Não! O Soundboard Go não tem cobranças e é completamente grátis! Não há custos ocultos nem taxas de assinatura. Todos os botões de som, sons de memes e funções são gratuitos para usar instantaneamente!",
+    "faq2Question": "P2. Preciso baixar um aplicativo para usar o Soundboard Go?",
+    "faq2Answer": "Absolutamente não. O Soundboard Go pode ser usado através de qualquer navegador em qualquer dispositivo (ou seja, smartphones, desktops, Chromebooks ou tablets).",
+    "faq3Question": "P3. Posso usar o Soundboard Go na escola ou no trabalho?",
+    "faq3Answer": "Claro. Nosso Soundboard é um site não bloqueável, o que significa que você pode acessá-lo em qualquer lugar, e você terá acesso total a todo o conteúdo do soundboard de memes, onde quer que esteja!",
+    "faq4Question": "P4. Qual é o processo para criar um soundboard personalizado?",
+    "faq4Answer": "Tudo o que você precisa fazer para criar seu soundboard personalizado é se inscrever para uma conta gratuita, navegar pela nossa biblioteca de sons e selecionar o botão de coração em qualquer um dos botões para salvá-los. Você pode criar coleções dos seus sons salvos quando quiser.",
+    "faq5Question": "P5. O Soundboard Go adiciona novos sons com frequência?",
+    "faq5Answer": "Nós carregamos novas atualizações em nossa biblioteca todos os dias, adicionando novos botões de memes, sons de pegadinhas em tendência, efeitos sonoros virais e outro novo material de soundboard de memes de toda a web."
+  },
+  "soundboard": {
+    "sounds": "sons",
+    "noSounds": "Ainda não há sons neste painel",
+    "addToFavorites": "Adicionar aos favoritos",
+    "removeFromFavorites": "Remover dos favoritos",
+    "addToSoundboard": "Adicionar ao meu painel",
+    "playCount": "reproduções"
+  },
+  "favorites": {
+    "title": "Meus Favoritos",
+    "empty": "Sem favoritos ainda",
+    "emptyDescription": "Clique no ícone de coração em qualquer som para adicioná-lo aos seus favoritos"
+  },
+  "mySoundboards": {
+    "title": "Meus Painéis",
+    "create": "Criar Painel",
+    "createTitle": "Criar Novo Painel",
+    "namePlaceholder": "Digite o nome do painel",
+    "empty": "Sem painéis ainda",
+    "emptyDescription": "Crie seu próprio painel com seus sons favoritos",
+    "delete": "Excluir",
+    "edit": "Editar"
+  },
+  "trending": {
+    "title": "Botões de Som em Alta",
+    "description": "Explore os botões de som mais populares e meme soundboard em alta.",
+    "h1": "Botões de Som em Tendência e Soundboard",
+    "shortDescription": "Explore o meme soundboard em tendência e botões de som no Soundboard Go.",
+    "empty": "Nenhum som em tendência disponível ainda"
+  },
+  "new": {
+    "title": "Novos Botões de Som",
+    "description": "Explore botões de som recém-adicionados e os últimos meme soundboard!",
+    "h1": "Novos Botões de Som e Soundboard",
+    "shortDescription": "Descubra novos botões de som e meme soundboard no Soundboard Go!",
+    "empty": "Nenhum som novo disponível ainda"
+  },
+  "categories": {
+    "meme": "Meme",
+    "reaction": "Reação",
+    "games": "Jogos",
+    "movies": "Filmes",
+    "anime-manga": "Anime & Mangá",
+    "prank": "Pegadinha",
+    "tiktok-trends": "Tendências do TikTok",
+    "creativity": "Criatividade",
+    "politics": "Política",
+    "sound-effects": "Efeitos Sonoros"
+  },
+  "footer": {
+    "copyright": "SoundboardGo",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "contact": "Contato",
+    "about": "Sobre",
+    "dmca": "DMCA",
+    "disclaimer": "Aviso Legal"
+  },
+  "meta": {
+    "title": "SoundBoardGo: Meme Soundboard com Botões de Som Desbloqueados",
+    "description": "Reproduza e baixe milhares de botões de som, pegadinhas, efeitos sonoros e botões de memes. Soundboard Go é sua mesa de sons de memes gratuita e desbloqueada para diversão instantânea."
+  },
+  "soundDetail": {
+    "addToSoundboard": "Adicionar ao meu painel",
+    "addedToSoundboard": "Adicionado ao painel",
+    "removedFromSoundboard": "Removido do painel",
+    "getRingtone": "Obter Toque",
+    "downloadMp3": "Baixar MP3",
+    "notificationSound": "Som de Notificação",
+    "socialMediaSharing": "Compartilhamento em Redes Sociais",
+    "usersFavorited": "usuários adicionaram este botão de som aos favoritos",
+    "viewed": "visualizaram este botão de som",
+    "played": "reproduziram este botão de som",
+    "youMightAlsoLike": "Você Também Pode Gostar",
+    "exploreMore": "Explorar Mais Sons de",
+    "addedToFavorites": "Adicionado aos favoritos!",
+    "removedFromFavorites": "Removido dos favoritos!"
+  },
+  "loadMore": {
+    "button": "Carregar Mais",
+    "loading": "Carregando..."
+  },
+  "auth": {
+    "login": "Entrar",
+    "register": "Registrar",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar Senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "noAccount": "Não tem uma conta?",
+    "hasAccount": "Já tem uma conta?",
+    "signUp": "Inscrever-se",
+    "signIn": "Entrar",
+    "loggingIn": "Entrando...",
+    "signingUp": "Inscrevendo-se..."
+  },
+  "upload": {
+    "title": "Enviar Som",
+    "description": "Compartilhe seu botão de som favorito com a comunidade",
+    "soundName": "Nome do Som",
+    "soundFile": "Arquivo de Som",
+    "category": "Categoria",
+    "selectCategory": "Selecionar Categoria",
+    "uploadButton": "Enviar Som",
+    "uploading": "Enviando...",
+    "success": "Som enviado com sucesso!",
+    "error": "Falha ao enviar som"
+  },
+  "about": {
+    "title": "Sobre Nós",
+    "description": "Saiba mais sobre SoundboardGo e nossa missão"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "description": "Entre em contato conosco para perguntas ou feedback"
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "description": "Nossa política de privacidade e como lidamos com seus dados"
+  },
+  "terms": {
+    "title": "Termos e Condições",
+    "description": "Termos de serviço para usar SoundboardGo"
+  },
+  "dmca": {
+    "title": "DMCA",
+    "description": "Política de direitos autorais e procedimentos de notificação"
+  },
+  "disclaimer": {
+    "title": "Aviso Legal",
+    "description": "Aviso legal e isenções de responsabilidade"
+  },
+  "search": {
+    "metaTitle": "{Search Name} Botão de Efeito Sonoro | SoundBoardGo",
+    "metaDescription": "Descubra botões de efeitos sonoros {Search Name} para seu soundboard! Perfeito para pegadinhas, criação de conteúdo, streams de gaming e compartilhar risadas com amigos.",
+    "h1": "{Search Name} Botão de Efeito Sonoro"
+  }
+}

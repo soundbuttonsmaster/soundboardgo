@@ -1,0 +1,242 @@
+{
+  "common": {
+    "play": "再生",
+    "pause": "一時停止",
+    "search": "検索",
+    "searchResults": "検索結果",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "noResults": "結果が見つかりません",
+    "favorites": "お気に入り",
+    "mySoundboards": "マイサウンドボード",
+    "allSounds": "すべてのサウンド",
+    "share": "共有",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "seeAll": "すべて見る",
+    "home": "ホーム",
+    "showing": "表示中",
+    "of": "件中",
+    "sounds": "サウンド"
+  },
+  "nav": {
+    "home": "ホーム",
+    "new": "新着",
+    "trending": "トレンド",
+    "categories": "カテゴリー",
+    "soundboards": "サウンドボード",
+    "pages": "ページ",
+    "about": "私たちについて",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "dmca": "DMCA",
+    "disclaimer": "免責事項",
+    "login": "ログイン",
+    "register": "登録",
+    "logout": "ログアウト",
+    "upload": "アップロード"
+  },
+  "home": {
+    "title": "Soundboard Go：ミームサウンドボードでサウンドボタンを再生",
+    "subtitle": "Soundboard Go は、サウンドボタン、サウンドエフェクト、ロック解除されたミームサウンドボードの最大コレクションを提供しています。ゲーム、ストリーミング、コンテンツ作成、楽しみのための音を再生、ダウンロード、共有してください!",
+    "searchPlaceholder": "サウンドを検索...",
+    "popularSounds": "人気のサウンド",
+    "browseSoundboards": "サウンドボードを見る",
+    "trending": "サウンドボタン：トレンド",
+    "newSounds": "サウンドボタン：新着",
+    "exploreTrending": "もっとトレンドサウンドを見る",
+    "exploreNew": "もっと新着サウンドを見る",
+    "welcomeTitle": "Soundboard Goへようこそ：究極のサウンドボタン体験",
+    "welcomeDescription": "Soundboard Goは、ミームサウンドボードエンターテイメントのナンバーワンソースです。当サイトでは、バイラルミームサウンド、面白いいたずらサウンド、即座にエンターテイメントを提供する人気のオーディオクリップなど、何千ものサウンドボタンを提供しています！ゲーマー、ストリーマー、コンテンツクリエイター、カジュアルユーザーの方も、Soundboard Goで必要なものがすべて見つかります！",
+    "whyChooseTitle": "なぜSoundboard Goを選ぶのか？",
+    "whyChooseDescription": "Soundboard Goが他の類似サイトと異なる点は何でしょうか？私たちのチームは、ミームサウンドボードの世界で最もユーザーフレンドリーな体験を提供するために、時間と労力を費やしました！非常に高速なサーバーを持っているため、素晴らしいリアクションのためにすぐにサウンドを再生する必要がある場合でも、すぐにアクセスできることを保証します！当サイトのクリーンでモダンなデザインにより、Soundboard Goサイト上の何千もの異なるサウンドを簡単かつ楽しく閲覧できます。",
+    "dailyUpdates": "Soundboard Goでは、毎日トレンドの新しいエキサイティングなサウンドでサウンドコレクションを更新しています。TikTok、YouTube、Twitterなどのソーシャルメディアプラットフォームのトレンドやバイラルサウンドを追跡し、毎日新しいミームベースのオーディオをお届けしますので、常に最新かつ最高のオーディオをご利用いただけます！",
+    "featuresTitle": "Soundboard Goのトップ機能",
+    "featuresIntro": "Soundboard Goには、サイト利用時に最大限の楽しさと満足感を提供する機能が含まれています。",
+    "instantSoundTitle": "インスタントサウンド",
+    "instantSoundDesc": "すべてのサウンドボタンは遅延やラグなしで再生されます。ストリーム、リアクションビデオ、いたずらのためのタイムリーな制作。",
+    "largestLibraryTitle": "最大のサウンドライブラリ",
+    "largestLibraryDesc": "10,000以上のサウンドボタン、ミームボタン、いたずらサウンドエフェクト、バイラルサウンドエフェクトにすべて一箇所でアクセス。",
+    "dailyContentTitle": "毎日のコンテンツ更新",
+    "dailyContentDesc": "継続的な楽しみを提供するために、新鮮なコンテンツとミームサウンドボードオーディオファイルが毎日ライブラリに追加されます。",
+    "customCollectionsTitle": "カスタムコレクション",
+    "customCollectionsDesc": "ユーザーは好みの方法で整理されたお気に入りのサウンドの独自のカスタムコレクションを作成できます。",
+    "highQualityAudioTitle": "高品質オーディオ",
+    "highQualityAudioDesc": "新しいサウンドエフェクトを作成するたびに、プロレベルのクリスタルクリアなサウンドエフェクト。",
+    "browserBasedTitle": "ブラウザベース",
+    "browserBasedDesc": "何もダウンロードする必要はありません。ブラウザを通じて即座にサウンドエフェクトにアクセス。",
+    "oneClickShare": "ワンクリック共有",
+    "oneClickShareDesc": "すべてのソーシャルプラットフォーム、Discord、WhatsApp、または面白いサウンドエフェクトへの直接リンクでワンクリックで笑いのサウンドエフェクトを共有する方法。",
+    "categoriesTitle": "サウンドボードカテゴリを探索",
+    "memesCategoryTitle": "ミーム",
+    "memesCategoryDesc": "インターネット上で最も人気のあるバイラルコンテンツからの最も愛されているオーディオをここで見つけることができます。楽しんでください！",
+    "reactionsCategoryTitle": "リアクション",
+    "reactionsCategoryDesc": "みんなに聞こえるオーディオファイルで表現し、反応し、ソーシャルメディアで共有して感情を伝えましょう！",
+    "prankCategoryTitle": "いたずら",
+    "prankCategoryDesc": "いたずらオーディオファイルで大切な人を驚かせましょう。楽しみを始めましょう！",
+    "trendingCategoryTitle": "トレンド",
+    "trendingCategoryDesc": "現在すべてのソーシャルメディアチャンネルで共有・閲覧されている最も有名な視聴覚要素。",
+    "gamingCategoryTitle": "ゲーミング",
+    "gamingCategoryDesc": "ライブまたはオフラインでビデオゲームをプレイする際に求められるすべての最高のサウンドエフェクト。",
+    "moviesCategoryTitle": "映画",
+    "moviesCategoryDesc": "お気に入りの映画の名言とサウンドエフェクトすべて。",
+    "unblockedTitle": "サウンドボードブロック解除 - いつでもどこでも再生",
+    "unblockedDescription": "Soundboard Goを使えば、すべてのサウンドボードのブロックを解除し、いつでもどこでも聴くことができます。学校でも職場でも完全に機能するサウンドボードアクセスにより、誰もが制限なくエンターテイメントを得る手段を持つべきだと私たちは理解しています。",
+    "worksOnTitle": "対応デバイス：",
+    "worksOnDevices": "iPhoneとAndroidデバイス\nWindowsとMacコンピュータ\n学生向けChromebook\nタブレットとiPad\nすべての最新ウェブブラウザ",
+    "noRegistration": "Soundboard Goを使用するために登録やダウンロードは必要ありません。アプリを開いて、お気に入りのミームサウンドボードをクリックするだけでSoundboard Goの使用を開始できます。",
+    "personalSoundboardTitle": "パーソナルサウンドボードを作成",
+    "personalSoundboardDescription": "カスタムサウンドボードクリエイターを使用すると、Soundboard Goでの体験をまったく新しいレベルに引き上げることができます。Soundboard Goプラットフォームでは、ダウンロードや登録なしで、作成、整理、保存、いつでも再生が可能です。",
+    "personalSoundboardHow": "ミームサウンド、いたずらサウンド、バイラルサウンドエフェクトの膨大なセレクションから、欲しいボタンを見つけて、その横にあるハートアイコンをクリックするだけでコレクションに保存できます。その後、ムード、カテゴリ、場面に基づいてフォルダを作成し、コレクションを整理してアクセスしやすくします。",
+    "perfectForEveryoneTitle": "すべての人に最適",
+    "perfectForEveryoneDescription": "ストリーマーはSoundboard Goを使用してミームボタンに即座にアクセスし、視聴者を引きつけ続けます。コンテンツプロデューサーも、ティーザービデオやポッドキャストの作成にサウンドエフェクトを使用しています。Discordユーザーも、会話を壮大なものにする適切なサウンドを活用しています。カジュアルユーザーも、毎日多くのいたずらサウンドエフェクトやバイラルコンテンツを発見して楽しむことができます。",
+    "faqTitle": "よくある質問（FAQ）",
+    "faq1Question": "Q1. Soundboard Goの利用には料金がかかりますか？",
+    "faq1Answer": "いいえ、かかりません！Soundboard Goは無料です。100%無料です！アプリで利用できるサウンドボタン、ミームサウンド、その他の機能はすべて無料で利用できます。これらの機能はダウンロード後すぐにすべて無料でご利用いただけます！",
+    "faq2Question": "Q2. Soundboard Goを使用できますか？",
+    "faq2Answer": "もちろんです。当サウンドボードはブロック解除サイトであり、どこからでもアクセスでき、どこにいてもすべてのミームサウンドボードコンテンツに完全にアクセスできます！",
+    "faq3Question": "Q3. カスタムサウンドボードを作成するプロセスは何ですか？",
+    "faq3Answer": "カスタムサウンドボードを作成するには、無料アカウントにサインアップし、サウンドライブラリを閲覧し、任意のボタンのハートボタンを選択して保存するだけです。いつでも保存したサウンドのコレクションを作成できます。",
+    "faq4Question": "Q4. Soundboard Goは頻繁に新しいサウンドを追加しますか？",
+    "faq4Answer": "毎日ライブラリに新しい更新をアップロードし、新しいミームボタン、トレンドのいたずらサウンド、バイラルサウンドエフェクト、その他の新しいミームサウンドボード素材をウェブ全体から追加しています。"
+  },
+  "categories": {
+    "meme": "ミーム",
+    "reaction": "リアクション",
+    "games": "ゲーム",
+    "movies": "映画",
+    "animeAndManga": "アニメ＆マンガ",
+    "prank": "いたずら",
+    "tiktokTrends": "TikTokトレンド",
+    "creativity": "クリエイティビティ",
+    "politics": "政治",
+    "soundEffects": "効果音"
+  },
+  "soundboard": {
+    "sounds": "サウンド",
+    "noSounds": "このサウンドボードにはまだサウンドがありません",
+    "addToFavorites": "お気に入りに追加",
+    "removeFromFavorites": "お気に入りから削除",
+    "addToSoundboard": "マイサウンドボードに追加",
+    "playCount": "再生回数"
+  },
+  "favorites": {
+    "title": "マイお気に入り",
+    "empty": "お気に入りはまだありません",
+    "emptyDescription": "サウンドのハートアイコンをクリックしてお気に入りに追加"
+  },
+  "mySoundboards": {
+    "title": "マイサウンドボード",
+    "create": "サウンドボードを作成",
+    "createTitle": "新しいサウンドボードを作成",
+    "namePlaceholder": "サウンドボード名を入力",
+    "empty": "サウンドボードはまだありません",
+    "emptyDescription": "お気に入りのサウンドでオリジナルのサウンドボードを作成",
+    "delete": "削除",
+    "edit": "編集"
+  },
+  "trending": {
+    "title": "トレンドサウンドボタン",
+    "description": "人気のサウンドボタンとトレンドミームサウンドボードを探索しましょう",
+    "h1": "トレンドサウンドボタンとサウンドボード",
+    "shortDescription": "Soundboard Go でトレンドミームサウンドボードとサウンドボタンを探索してください。",
+    "empty": "トレンドサウンドはまだ利用できません"
+  },
+  "new": {
+    "title": "新着サウンドボタン",
+    "description": "最近追加されたサウンドボタンと最新のミームサウンドボードを探索しましょう！",
+    "h1": "新しいサウンドボタンとサウンドボード",
+    "shortDescription": "Soundboard Go で新しいサウンドボタンとミームサウンドボードを発見してください!",
+    "empty": "新着サウンドはまだ利用できません"
+  },
+  "auth": {
+    "login": "ログイン",
+    "register": "登録",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワードを確認",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "noAccount": "アカウントをお持ちでないですか？",
+    "hasAccount": "既にアカウントをお持ちですか？",
+    "signIn": "サインイン",
+    "signUp": "サインアップ",
+    "signOut": "サインアウト",
+    "loginSuccess": "ログインに成功しました！",
+    "registerSuccess": "登録に成功しました！",
+    "loginError": "ログインエラー",
+    "registerError": "登録エラー"
+  },
+  "upload": {
+    "title": "サウンドをアップロード",
+    "description": "独自のサウンドボタンをアップロードして共有",
+    "soundName": "サウンド名",
+    "soundFile": "サウンドファイル",
+    "category": "カテゴリー",
+    "selectCategory": "カテゴリーを選択",
+    "uploadButton": "サウンドをアップロード",
+    "uploadSuccess": "サウンドが正常にアップロードされました！",
+    "uploadError": "サウンドのアップロードに失敗しました"
+  },
+  "pages": {
+    "about": {
+      "title": "私たちについて",
+      "description": "サウンドボタンマックスについて詳しく知る"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "description": "ご質問やフィードバックをお寄せください"
+    },
+    "privacy": {
+      "title": "プライバシーポリシー",
+      "description": "当社のプライバシー慣行について読む"
+    },
+    "terms": {
+      "title": "利用規約",
+      "description": "サービス利用規約を読む"
+    },
+    "dmca": {
+      "title": "DMCA",
+      "description": "DMCA通知と手順"
+    },
+    "disclaimer": {
+      "title": "免責事項",
+      "description": "免責事項と法的通知"
+    }
+  },
+  "footer": {
+    "copyright": "サウンドボタンマックス",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "contact": "お問い合わせ"
+  },
+  "meta": {
+    "title": "SoundBoardGo: ロック解除されたサウンドボタン付きミームサウンドボード",
+    "description": "数千のサウンドボタン、いたずら、効果音、ミームボタンを再生してダウンロード。Soundboard Goは無料でブロック解除されたミームサウンドボードで、即座に楽しめます。"
+  },
+  "soundDetail": {
+    "addToSoundboard": "マイサウンドボードに追加",
+    "addedToSoundboard": "サウンドボードに追加しました",
+    "removedFromSoundboard": "サウンドボードから削除しました",
+    "getRingtone": "着信音を取得",
+    "downloadMp3": "MP3をダウンロード",
+    "notificationSound": "通知音",
+    "socialMediaSharing": "ソーシャルメディア共有",
+    "usersFavorited": "ユーザーがこのサウンドボタンをお気に入りに追加",
+    "viewed": "がこのサウンドボタンを閲覧",
+    "played": "がこのサウンドボタンを再生",
+    "youMightAlsoLike": "おすすめ",
+    "exploreMore": "もっと見る",
+    "addedToFavorites": "お気に入りに追加されました！",
+    "removedFromFavorites": "お気に入りから削除されました！"
+  },
+  "loadMore": {
+    "button": "もっと読み込む",
+    "loading": "読み込み中..."
+  },
+  "search": {
+    "metaTitle": "{Search Name} 効果音ボタン | SoundBoardGo",
+    "metaDescription": "サウンドボード用の{Search Name}効果音ボタンを発見!いたずら、コンテンツ作成、ゲーム配信、友達との笑いのシェアに最適。",
+    "h1": "{Search Name} 効果音ボタン"
+  }
+}
