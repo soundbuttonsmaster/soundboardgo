@@ -139,7 +139,7 @@ async function generateCategorySitemap(baseUrl: string): Promise<MetadataRoute.S
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://soundbuttonsmax.com"
+  const baseUrl = "https://soundboardgo.com"
   const currentDate = new Date().toISOString()
 
   return [
