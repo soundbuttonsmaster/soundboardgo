@@ -4,7 +4,7 @@ const STATIC_CACHE = "static-v2"
 const DYNAMIC_CACHE = "dynamic-v2"
 
 // Static assets to cache on install
-const STATIC_ASSETS = ["/", "/favicon.ico", "/og-image.jpg", "/apple-touch-icon.jpg", "/manifest.json"]
+const STATIC_ASSETS = ["/", "/main.png", "/og-image.jpg", "/manifest.json"]
 
 // Install event - cache static assets
 self.addEventListener("install", (event) => {

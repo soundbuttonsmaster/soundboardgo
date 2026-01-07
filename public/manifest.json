@@ -9,26 +9,10 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "/main.png",
+      "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
     }
   ],
   "categories": ["entertainment", "music", "games"],
@@ -38,21 +22,21 @@
       "short_name": "Trending",
       "description": "View trending sound buttons",
       "url": "/en/trending",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/main.png", "sizes": "any" }]
     },
     {
       "name": "New Sounds",
       "short_name": "New",
       "description": "View newest sound buttons",
       "url": "/en/new",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/main.png", "sizes": "any" }]
     },
     {
       "name": "Upload Sound",
       "short_name": "Upload",
       "description": "Upload a new sound",
       "url": "/en/upload",
-      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/main.png", "sizes": "any" }]
     }
   ]
 }
