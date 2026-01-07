@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const siteUrl = "https://soundboardgo.com";
   const pageUrl = `${siteUrl}/${lang}/search/${encodeURIComponent(query)}`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   const title = dict.search.metaTitle.replace("{Search Name}", decodedQuery);
   const description = dict.search.metaDescription.replace(

@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = await getDictionary(lang as Locale);
 
   const siteUrl = "https://soundboardgo.com";
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   return {
     metadataBase: new URL(siteUrl),

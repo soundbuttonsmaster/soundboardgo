@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const siteUrl = "https://soundboardgo.com";
   // Use actual route params to ensure canonical matches the page URL
   const soundUrl = `${siteUrl}/${lang}/sound/${slug}/${id}`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   // Localized SEO title & description templates per language
   const soundName = sound.name;

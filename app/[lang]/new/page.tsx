@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const siteUrl = "https://soundboardgo.com";
   const pageUrl = `${siteUrl}/${lang}/new`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   // Localized SEO title & description for New page
   const titleByLocale: Record<Locale, string> = {

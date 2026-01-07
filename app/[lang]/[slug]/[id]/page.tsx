@@ -59,7 +59,7 @@ export async function generateMetadata({
   const { category, sounds } = data;
   const siteUrl = "https://soundboardgo.com";
   const pageUrl = `${siteUrl}/${lang}/${slug}/${id}`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   const name = category.name;
 

@@ -19,7 +19,7 @@ export async function generateMetadata({
 
   const siteUrl = "https://soundboardgo.com";
   const pageUrl = `${siteUrl}/${lang}/upload`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   const title = "Upload Sound - Share Your Sounds | SoundBoardGo";
   const description =

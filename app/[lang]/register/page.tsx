@@ -17,7 +17,7 @@ export async function generateMetadata({
 
   const siteUrl = "https://soundboardgo.com";
   const pageUrl = `${siteUrl}/${lang}/register`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   const title = "Sign Up - Create Your Sound Buttons Account | SoundBoardGo";
   const description =

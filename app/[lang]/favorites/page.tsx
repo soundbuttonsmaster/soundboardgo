@@ -18,7 +18,7 @@ export async function generateMetadata({
 
   const siteUrl = "https://soundboardgo.com";
   const pageUrl = `${siteUrl}/${lang}/favorites`;
-  const ogImageUrl = `${siteUrl}/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/ogimage.jpg`;
 
   const title = "My Favorites - Saved Sound Buttons | SoundBoardGo";
   const description =

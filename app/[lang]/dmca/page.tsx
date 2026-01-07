@@ -25,7 +25,7 @@ export async function generateMetadata({
         "Our DMCA policy and procedures for handling copyright infringement claims.",
       url: `${baseUrl}/${lang}/dmca`,
       siteName: "SoundBoardGo",
-      images: [{ url: `${baseUrl}/og-image.jpg` }],
+      images: [{ url: `${baseUrl}/ogimage.jpg` }],
       locale: lang,
       type: "website",
     },

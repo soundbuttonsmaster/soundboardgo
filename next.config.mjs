@@ -16,8 +16,9 @@ const nextConfig = {
   },
   // cacheComponents: true,
   experimental: {
-    optimizePackageImports: ["@/components", "@/lib", "lucide-react"],
-    optimizeCss: true,
+    // Temporarily disable experimental features to avoid Turbopack build issues
+    // optimizePackageImports: ["@/components", "@/lib", "lucide-react"],
+    // optimizeCss: true,
   },
   async redirects() {
     return [
@@ -36,10 +37,6 @@ const nextConfig = {
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

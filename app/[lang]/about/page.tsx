@@ -26,7 +26,7 @@ export async function generateMetadata({
         "Learn about SoundBoardGo and our mission to provide the best free meme soundboards and sound effects.",
       url: `${baseUrl}/${lang}/about`,
       siteName: "SoundBoardGo",
-      images: [{ url: `${baseUrl}/og-image.jpg` }],
+      images: [{ url: `${baseUrl}/ogimage.jpg` }],
       locale: lang,
       type: "website",
     },
@@ -35,7 +35,7 @@ export async function generateMetadata({
       title: "About Us - SoundBoardGo",
       description:
         "Learn about SoundBoardGo and our mission to provide the best free meme soundboards and sound effects.",
-      images: [`${baseUrl}/og-image.jpg`],
+      images: [`${baseUrl}/ogimage.jpg`],
     },
     alternates: {
       canonical: `${baseUrl}/${lang}/about`,

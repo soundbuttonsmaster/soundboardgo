@@ -25,7 +25,7 @@ export async function generateMetadata({
       description: "Terms and conditions for using SoundBoardGo services.",
       url: `${baseUrl}/${lang}/terms`,
       siteName: "SoundBoardGo",
-      images: [{ url: `${baseUrl}/og-image.jpg` }],
+      images: [{ url: `${baseUrl}/ogimage.jpg` }],
       locale: lang,
       type: "website",
     },

@@ -26,7 +26,7 @@ export async function generateMetadata({
         "Our commitment to protecting your privacy and personal information.",
       url: `${baseUrl}/${lang}/privacy`,
       siteName: "SoundBoardGo",
-      images: [{ url: `${baseUrl}/og-image.jpg` }],
+      images: [{ url: `${baseUrl}/ogimage.jpg` }],
       locale: lang,
       type: "website",
     },

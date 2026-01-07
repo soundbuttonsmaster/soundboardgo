@@ -26,7 +26,7 @@ export async function generateMetadata({
         "Get in touch with the SoundBoardGo team. We'd love to hear from you!",
       url: `${baseUrl}/${lang}/contact`,
       siteName: "SoundBoardGo",
-      images: [{ url: `${baseUrl}/og-image.jpg` }],
+      images: [{ url: `${baseUrl}/ogimage.jpg` }],
       locale: lang,
       type: "website",
     },
@@ -35,7 +35,7 @@ export async function generateMetadata({
       title: "Contact Us - SoundBoardGo",
       description:
         "Get in touch with the SoundBoardGo team. We'd love to hear from you!",
-      images: [`${baseUrl}/og-image.jpg`],
+      images: [`${baseUrl}/ogimage.jpg`],
     },
     alternates: {
       canonical: `${baseUrl}/${lang}/contact`,
