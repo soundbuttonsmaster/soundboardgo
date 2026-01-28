@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { unstable_cache } from "next/cache";
 import { getPublicApiClient } from "@/lib/api/server";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -14,40 +14,93 @@ interface Props {
   params: Promise<{ lang: Locale; slug: string; id: string }>;
 }
 
-// Cached function to fetch sound and related sounds
-const getSoundData = unstable_cache(
-  async (numericId: number) => {
-    if (isNaN(numericId) || numericId < 1) {
-      return null;
-    }
-
-    const apiClient = getPublicApiClient();
-
+/**
+ * Retry function with exponential backoff
+ */
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  maxRetries = 3,
+  initialDelay = 500
+): Promise<T> {
+  let lastError: Error | null = null;
+  
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
-      const [soundResponse, relatedResponse] = await Promise.all([
-        apiClient.getSound(numericId).catch(() => null),
-        apiClient
-          .getRelatedSounds(numericId, { limit: 29 })
-          .catch(() => ({ status: 200, data: { results: [] } })),
-      ]);
-
-      if (!soundResponse || !soundResponse.data) return null;
-
-      return {
-        sound: soundResponse.data as unknown as Sound,
-        relatedSounds: (relatedResponse.data.results || []) as Sound[],
-      };
+      return await fn();
     } catch (error) {
-      console.error("Error fetching sound data:", error);
-      return null;
+      lastError = error as Error;
+      
+      // Don't retry on 404 errors (sound doesn't exist)
+      if (error instanceof Error && error.message.includes("404")) {
+        throw error;
+      }
+      
+      // Wait before retrying (exponential backoff)
+      if (attempt < maxRetries - 1) {
+        const delay = initialDelay * Math.pow(2, attempt);
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
     }
-  },
-  ["sound-detail"],
-  {
-    revalidate: 900,
-    tags: ["sounds"],
   }
-);
+  
+  throw lastError || new Error("Max retries exceeded");
+}
+
+/**
+ * Factory function to create a cached sound data fetcher for a specific sound ID
+ * This ensures each sound has its own cache entry
+ */
+function createSoundDataFetcher(numericId: number) {
+  return unstable_cache(
+    async () => {
+      if (isNaN(numericId) || numericId < 1) {
+        return null;
+      }
+
+      const apiClient = getPublicApiClient();
+
+      try {
+        // Retry logic for sound fetch
+        const soundResponse = await retryWithBackoff(
+          () => apiClient.getSound(numericId),
+          3,
+          500
+        ).catch((error) => {
+          console.error(`Failed to fetch sound ${numericId} after retries:`, error);
+          return null;
+        });
+
+        if (!soundResponse || !soundResponse.data) {
+          return null;
+        }
+
+        // Fetch related sounds (non-critical, so we allow it to fail silently)
+        const relatedResponse = await apiClient
+          .getRelatedSounds(numericId, { limit: 29 })
+          .catch(() => ({ status: 200, data: { results: [] } }));
+
+        return {
+          sound: soundResponse.data as unknown as Sound,
+          relatedSounds: (relatedResponse.data.results || []) as Sound[],
+        };
+      } catch (error) {
+        console.error(`Error fetching sound data for ID ${numericId}:`, error);
+        return null;
+      }
+    },
+    [`sound-detail-${numericId}`],
+    {
+      revalidate: 900,
+      tags: ["sounds"],
+    }
+  );
+}
+
+// Helper function to get sound data with caching
+async function getSoundData(numericId: number) {
+  const fetcher = createSoundDataFetcher(numericId);
+  return fetcher();
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, slug, id } = await params;
@@ -172,7 +225,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function SoundDetailPage({ params }: Props) {
-  const { lang, id } = await params;
+  const { lang, slug, id } = await params;
   const numericId = extractIdFromUrl(id);
 
   if (isNaN(numericId)) {
@@ -190,7 +243,13 @@ export default async function SoundDetailPage({ params }: Props) {
   }
 
   const { sound, relatedSounds } = data;
-  console.log("Related Sounds:", relatedSounds);
+  
+  // Validate slug matches sound name - redirect to correct URL if mismatch
+  const expectedSlug = generateSlug(sound.name);
+  if (slug !== expectedSlug) {
+    // Redirect to the correct URL with proper slug
+    redirect(`/${lang}/sound/${expectedSlug}/${id}`, "replace");
+  }
 
   return (
     <SoundDetailClient
